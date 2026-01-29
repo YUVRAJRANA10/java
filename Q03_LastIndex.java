@@ -26,30 +26,20 @@ public class Q03_LastIndex {
     public static int finall = -1;
     public static int lastIndex(int[] arr, int index, int target) {
         // YOUR CODE HERE
-          
-     
-
-
-     if(arr[index] == target ){
-        finall = index;
-     }
-     
-     if(index ==  arr.length - 1){
-        return finall;
-     }
-
-     return lastIndex(arr, index + 1, target);
-
-
-
-
-        // placeholder
+        if(arr[index] == target ){
+            finall = index;
+        }
+        if(index ==  arr.length - 1){
+            return finall;
+        }
+        return lastIndex(arr, index + 1, target);
     }
 
     public static void main(String[] args) {
         System.out.println("=== CCTV Review – Last Seen Moment (Last Index) ===\n");
 
         // Test Case 1: Multiple occurrences
+        finall = -1;
         int[] test1 = {5, 3, 5, 7, 5, 9, 5};
         System.out.println("Test 1: Array = {5, 3, 5, 7, 5, 9, 5}, Target = 5");
         System.out.println("Expected: 6 (last occurrence)");
@@ -57,6 +47,7 @@ public class Q03_LastIndex {
         System.out.println();
 
         // Test Case 2: Single occurrence
+        finall = -1;
         int[] test2 = {10, 20, 30, 40, 50};
         System.out.println("Test 2: Array = {10, 20, 30, 40, 50}, Target = 30");
         System.out.println("Expected: 2");
@@ -64,6 +55,7 @@ public class Q03_LastIndex {
         System.out.println();
 
         // Test Case 3: Target at first position only
+        finall = -1;
         int[] test3 = {99, 1, 2, 3, 4};
         System.out.println("Test 3: Array = {99, 1, 2, 3, 4}, Target = 99");
         System.out.println("Expected: 0");
@@ -71,6 +63,7 @@ public class Q03_LastIndex {
         System.out.println();
 
         // Test Case 4: Target not present
+        finall = -1;
         int[] test4 = {1, 2, 3, 4, 5};
         System.out.println("Test 4: Array = {1, 2, 3, 4, 5}, Target = 100");
         System.out.println("Expected: -1");
@@ -78,6 +71,7 @@ public class Q03_LastIndex {
         System.out.println();
 
         // Test Case 5: All elements are same
+        finall = -1;
         int[] test5 = {7, 7, 7, 7, 7};
         System.out.println("Test 5: Array = {7, 7, 7, 7, 7}, Target = 7");
         System.out.println("Expected: 4 (last index)");
@@ -85,6 +79,7 @@ public class Q03_LastIndex {
         System.out.println();
 
         // Test Case 6: Two occurrences
+        finall = -1;
         int[] test6 = {1, 2, 3, 2, 1};
         System.out.println("Test 6: Array = {1, 2, 3, 2, 1}, Target = 2");
         System.out.println("Expected: 3");
