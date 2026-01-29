@@ -20,10 +20,30 @@ public class Q03_LastIndex {
      * @param index - current index to check
      * @param target - target frame to find
      * @return index of last occurrence, or -1 if not found
+     * 
      */
+
+    public static int finall = -1;
     public static int lastIndex(int[] arr, int index, int target) {
         // YOUR CODE HERE
-        return -1; // placeholder
+          
+     
+
+
+     if(arr[index] == target ){
+        finall = index;
+     }
+     
+     if(index ==  arr.length - 1){
+        return finall;
+     }
+
+     return lastIndex(arr, index + 1, target);
+
+
+
+
+        // placeholder
     }
 
     public static void main(String[] args) {
