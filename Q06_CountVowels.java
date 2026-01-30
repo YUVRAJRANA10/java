@@ -18,9 +18,27 @@ public class Q06_CountVowels {
      * @param index - current index to check
      * @return count of vowels in the string
      */
+
     public static int countVowels(String str, int index) {
         // YOUR CODE HERE
-        return 0; // placeholder
+
+       if(index == str.length()){
+          return 0;
+       };
+
+       char ch = str.charAt(index);
+
+       if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u'||ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U'){
+
+           return 1 + countVowels(str, index + 1);
+
+       }
+       else{
+
+           return countVowels(str, index + 1);
+
+        }
+
     }
 
     // Helper method to check if a character is a vowel

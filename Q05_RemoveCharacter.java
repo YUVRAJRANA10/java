@@ -17,9 +17,23 @@ public class Q05_RemoveCharacter {
      * @param ch - character to remove
      * @return string with all occurrences of ch removed
      */
+
+    // Recursive helper function
+    private static String removeCharHelper(String str, char ch, int index) {
+        if (index == str.length()) {
+            return "";
+        }
+        char current = str.charAt(index);
+        if (current == ch) {
+            return removeCharHelper(str, ch, index + 1);
+        } else {
+            return current + removeCharHelper(str, ch, index + 1);
+        }
+    }
+
+    // Public static method to call from main
     public static String removeChar(String str, char ch) {
-        // YOUR CODE HERE
-        return ""; // placeholder
+        return removeCharHelper(str, ch, 0);
     }
 
     public static void main(String[] args) {
