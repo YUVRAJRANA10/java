@@ -244,7 +244,13 @@ public class Part1_FundamentalConcepts {
      */
     public static int sumOfDigits(int n) {
         // TODO: Implement this
+
+    if(n == 0){
         return 0;
+    }
+
+        return n%10 + sumOfDigits( n/10);
+        
     }
     
     /**
@@ -288,7 +294,11 @@ public class Part1_FundamentalConcepts {
      */
     public static int gcd(int a, int b) {
         // TODO: Implement this
-        return 0;
+
+        if(b == 0){
+            return a;
+        }
+        return gcd(b, a % b);
     }
     
     /**
@@ -359,7 +369,7 @@ public class Part1_FundamentalConcepts {
         // ===== PRACTICE PROBLEMS TEST CASES =====
         System.out.println("\n=== PRACTICE PROBLEMS - UNCOMMENT AFTER IMPLEMENTATION ===\n");
         
-        /*
+       
         // Test Sum of Digits
         System.out.println("--- SUM OF DIGITS ---");
         System.out.println("sumOfDigits(1234) = " + sumOfDigits(1234)); // Expected: 10
@@ -392,6 +402,6 @@ public class Part1_FundamentalConcepts {
         System.out.println("isSorted([1,2,3,4]) = " + isSorted(new int[]{1,2,3,4}, 0)); // Expected: true
         System.out.println("isSorted([1,3,2,4]) = " + isSorted(new int[]{1,3,2,4}, 0)); // Expected: false
         System.out.println("isSorted([5]) = " + isSorted(new int[]{5}, 0)); // Expected: true
-        */
+        
     }
 }
