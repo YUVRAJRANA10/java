@@ -9,6 +9,8 @@
  */
 public class Q06_CountVowels {
 
+
+
     /**
      * TODO: Implement this method
      * Count the number of vowels in a string using recursion
@@ -33,6 +35,7 @@ public class Q06_CountVowels {
            return 1 + countVowels(str, index + 1);
 
        }
+
        else{
 
            return countVowels(str, index + 1);
