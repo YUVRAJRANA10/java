@@ -32,19 +32,26 @@ public class P04_GenerateSubsets {
      * @return list of all subsets
      */
     public static List<List<Integer>> generateSubsets(int[] arr) {
-        // YOUR CODE HERE
-
-         List<Integer> listt = new ArrayList<>();
-         
-         for(int i = 0 ; i < (1 << arr.length) ; i++){
-
+        List<List<Integer>> result = new ArrayList<>();
+        int n = arr.length;
+        int totalSubsets = (1 << n);  // 2^n subsets
+        
+        // Iterate through all numbers from 0 to 2^n - 1
+        for (int mask = 0; mask < totalSubsets; mask++) {
+            List<Integer> subset = new ArrayList<>();
             
-
-
-         }
-
-
-        return new ArrayList<>(); // placeholder
+            // Check each bit position
+            for (int i = 0; i < n; i++) {
+                // If ith bit is set, include arr[i]
+                if ((mask & (1 << i)) != 0) {
+                    subset.add(arr[i]);
+                }
+            }
+            
+            result.add(subset);
+        }
+        
+        return result;
     }
 
     public static void main(String[] args) {
