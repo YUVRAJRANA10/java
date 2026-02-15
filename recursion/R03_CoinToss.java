@@ -51,7 +51,17 @@ public class R03_CoinToss {
      * @param current - current outcome being built
      */
     public static void coinToss(int n, String current) {
-        // YOUR CODE HERE
+     
+        if(n == 0){
+            System.out.println(current); 
+            return;
+        }
+        
+       
+        coinToss(n - 1, current + "H");
+        
+    
+        coinToss(n - 1, current + "T");
     }
 
     /**
@@ -63,7 +73,13 @@ public class R03_CoinToss {
      */
     public static int countCoinToss(int n) {
         // YOUR CODE HERE
-        return 0; // placeholder
+        if(n == 0){
+            return 1;
+        }
+
+        int includetail = countCoinToss(n -1 );
+        int includehead = countCoinToss(n -1 );
+        return includehead + includetail; // placeholder
     }
 
     public static void main(String[] args) {

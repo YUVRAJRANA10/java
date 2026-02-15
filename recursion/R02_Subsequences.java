@@ -27,6 +27,7 @@
  * - Building result string progressively
  * - Understanding decision trees
  * 
+ * 
  * Hints:
  * - At each character, you have 2 choices: include it OR exclude it
  * - Base case: when you've processed all characters, print the result
@@ -51,12 +52,28 @@ public class R02_Subsequences {
      * TODO: Implement this method
      * Print all subsequences of the given string
      * 
+     * 
      * @param str - original string
      * @param current - current subsequence being built
      * @param index - current position in original string
      */
     public static void printSubsequences(String str, String current, int index) {
-        // YOUR CODE HERE
+        // Base case: processed all characters, print the subsequence
+        if (index == str.length()) {
+            System.out.println("\"" + current + "\"");
+            return;
+        }
+        
+        // Get current character
+        char ch = str.charAt(index);
+        
+        // Choice 1: INCLUDE current character
+        // Add ch to current and move to next index
+        printSubsequences(str, current + ch, index + 1);
+        
+        // Choice 2: EXCLUDE current character
+        // Don't add ch, just move to next index
+        printSubsequences(str, current, index + 1);
     }
 
     /**
@@ -68,8 +85,16 @@ public class R02_Subsequences {
      * @return count of subsequences
      */
     public static int countSubsequences(String str, int index) {
-        // YOUR CODE HERE
-        return 0; // placeholder
+        // Base case: reached end, count this as 1 subsequence
+        if (index == str.length()) {
+            return 1;
+        }
+        
+        // Count subsequences by including + excluding current character
+        int includeCount = countSubsequences(str, index + 1);
+        int excludeCount = countSubsequences(str, index + 1);
+        
+        return includeCount + excludeCount; // Total = 2 * count(rest)
     }
 
     public static void main(String[] args) {
