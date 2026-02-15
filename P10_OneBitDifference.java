@@ -29,7 +29,21 @@ public class P10_OneBitDifference {
      */
     public static boolean differByOneBit(int a, int b) {
         // YOUR CODE HERE
+int count = 0;
+        for (int i = 0; i < 32; i++) {
+            
+            if(((a >> i) & 1) == ((b >> i) & 1)) {
+                 continue;
+            }
+
+            count++;
+        }
+        if(count == 1){
+            return true;
+        }
+        else{
         return false; // placeholder
+        }
     }
 
     /**

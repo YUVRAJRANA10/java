@@ -30,8 +30,41 @@ public class P05_MergeSortedArrays {
      * @return merged sorted array
      */
     public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
-        // YOUR CODE HERE
-        return new int[0]; // placeholder
+        // Create result array with combined length
+        int[] result = new int[arr1.length + arr2.length];
+        
+        // Three pointers: i for arr1, j for arr2, k for result
+        int i = 0;  // pointer for arr1
+        int j = 0;  // pointer for arr2
+        int k = 0;  // pointer for result
+        
+        // Compare elements from both arrays and pick smaller one
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] <= arr2[j]) {
+                result[k] = arr1[i];
+                i++;  // move arr1 pointer
+            } else {
+                result[k] = arr2[j];
+                j++;  // move arr2 pointer
+            }
+            k++;  // always move result pointer
+        }
+        
+        // Copy remaining elements from arr1 (if any)
+        while (i < arr1.length) {
+            result[k] = arr1[i];
+            i++;
+            k++;
+        }
+        
+        // Copy remaining elements from arr2 (if any)
+        while (j < arr2.length) {
+            result[k] = arr2[j];
+            j++;
+            k++;
+        }
+        
+        return result;
     }
 
     public static void main(String[] args) {
