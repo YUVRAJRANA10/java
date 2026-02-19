@@ -56,7 +56,21 @@ public class R04_BoardPath {
      * @param path - path taken so far
      */
     public static void printBoardPath(int current, int end, String path) {
-        // YOUR CODE HERE
+        // Base case 1: Reached the target!
+        if (current == end) {
+            System.out.println(path);
+            return;
+        }
+        
+        // Base case 2: Overshot the target, invalid path
+        if (current > end) {
+            return;
+        }
+        
+        // Try all 3 possible moves: jump 1, 2, or 3 steps
+        printBoardPath(current + 1, end, path + "1");
+        printBoardPath(current + 2, end, path + "2");
+        printBoardPath(current + 3, end, path + "3");
     }
 
     /**
@@ -68,8 +82,22 @@ public class R04_BoardPath {
      * @return count of paths
      */
     public static int countBoardPath(int current, int end) {
-        // YOUR CODE HERE
-        return 0; // placeholder
+        // Base case 1: Reached the target
+        if (current == end) {
+            return 1;
+        }
+        
+        // Base case 2: Overshot, invalid path
+        if (current > end) {
+            return 0;  // This path doesn't count!
+        }
+
+        // Count paths by trying all 3 moves
+        int a = countBoardPath(current + 1, end);
+        int b = countBoardPath(current + 2, end);
+        int c = countBoardPath(current + 3, end);
+
+        return a + b + c;
     }
 
     public static void main(String[] args) {
