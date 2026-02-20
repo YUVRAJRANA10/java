@@ -211,9 +211,11 @@ public class ExceptionHandlingTutorial {
         throw new RuntimeException("This is an unchecked exception");
     }
     
+
     // ==============================================
     // 8. PRACTICAL EXAMPLES
     // ==============================================
+    
     
     public static void practicalExample1_BankAccount() {
         System.out.println("\n=== PRACTICAL EXAMPLE: Bank Account ===");
