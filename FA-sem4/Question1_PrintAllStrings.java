@@ -44,6 +44,7 @@ class Solve {
             return;
         }
 
+        
         currStr[index] = '0';
      
         generateAllStrings(n, i+1, currStr, strs);

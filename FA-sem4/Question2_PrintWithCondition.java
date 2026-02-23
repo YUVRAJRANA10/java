@@ -51,7 +51,28 @@ class Solve
     void generateAllStrings(int n, int i, int k, char currStr[], ArrayList<String> strs)
     {
         // Write your code here
+
+
+        int index = i;
+        if (i == n ) {
+          
+            strs.add(new String(currStr));
+            
+            return;
+        }
         
+    if (i == k) {
+    // Position k MUST be '1', no other option
+    currStr[i] = '1';
+    generateAllStrings(n, i+1, k, currStr, strs);
+} else {
+    // For other positions, try both '0' and '1'
+    currStr[i] = '0';
+    generateAllStrings(n, i+1, k, currStr, strs);
+    
+    currStr[i] = '1';
+    generateAllStrings(n, i+1, k, currStr, strs);
+}
     }
     
     public static void main(String[] args)
