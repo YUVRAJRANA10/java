@@ -50,7 +50,34 @@ import java.util.*;
 class Solution {
     public int solve(int[] arr) {
         // Write your code here
-        return 0;
+
+        int[] C =new int[arr.length];
+for(int i = 0; i < arr.length; i++){
+ int num = arr[i];
+ int sum = 0;
+    while (num > 0) {
+        int rem = num % 6;
+        sum = sum + rem;
+        num = num /6;
+        
+    }
+
+    C[i] = sum;
+
+}
+
+int count = 0;
+
+for (int i = 0; i < C.length; i++) {
+    for (int j = i+1; j < C.length; j++) {
+        if(C[i] > C[j]){
+            count++;
+        }
+    }
+}
+
+
+        return count;
     }
     
     public static void main(String[] args)
